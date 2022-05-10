@@ -12,6 +12,7 @@ use Illuminate\Console\Command;
 class EmailInactiveUsers extends Command
 {
 
+
     protected $signature = 'email:users';
 
     protected $description = 'Priminimo laiškas';
