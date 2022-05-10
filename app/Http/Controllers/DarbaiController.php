@@ -56,9 +56,9 @@ class DarbaiController extends Controller
         $apr = $request->get('apr');
         $receivers = DB::insert('insert into Darbai(Kodas,KodoApr)values(?,?)', [$kodas, $apr]);
         if ($receivers) {
-            $red = redirect('/createjobcode')->with('message', 'Cargo inserted');
+            $red = redirect('/createjobcode')->with('message', 'Pareigybė užregistruota');
         } else {
-            $red = redirect('/createjobcode')->with('message', 'Input failed');
+            $red = redirect('/createjobcode')->with('message', 'Registracijos klaida');
         }
         return $red;
     }

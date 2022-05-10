@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\User;
+use app\User;
 use App\DatosSkaiciuokle;
 use Illuminate\Support\Facades\DB;
 use App\Notifications\NotifyUser;
@@ -14,7 +14,7 @@ class EmailInactiveUsers extends Command
 
     protected $signature = 'email:users';
 
-    protected $description = 'Email to Inactive Users';
+    protected $description = 'Priminimo laiškas';
 
     public function __construct()
     {
@@ -23,8 +23,9 @@ class EmailInactiveUsers extends Command
 
     public function handle()
     {
-        $inactive_user = User::all()
-            ->where('username', '=', 'jonukas');
+        $inactive_user = DB::select('select a.* from users a
+join DatosSkaiciuokle b on a.username = b.Vartotojas
+where dienos = -14');
 
 
 
